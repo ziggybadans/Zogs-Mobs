@@ -1,29 +1,31 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "zogsmobs",
   "version": "${version}",
 
-  "name": "Example Mod",
+  "name": "Zogs Mobs",
   "description": "This is an example description! Tell everyone what your mod is about!",
   "authors": [
-    "Me!"
+    "Ziggy Badans"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://ziggybadans.com.au",
+    "sources": "https://github.com/ziggybadans/zogs-mobs"
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/zogsmobs/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "com.ziggybadans.zogsmobs.ZogsMobs"
+    ],
+    "client": [
+      "com.ziggybadans.zogsmobs.ZogsMobsClient"
     ]
   },
   "mixins": [
-    "modid.mixins.json"
   ],
 
   "depends": {
