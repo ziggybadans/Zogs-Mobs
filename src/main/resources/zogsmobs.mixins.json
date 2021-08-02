@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.ziggybadans.zogsmobs.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [
+    "ZogsMobsMixin"
+  ],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

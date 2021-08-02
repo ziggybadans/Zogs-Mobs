@@ -26,6 +26,7 @@
     ]
   },
   "mixins": [
+    "zogsmobs.mixins.json"
   ],
 
   "depends": {
