@@ -7,9 +7,7 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.SlabBlock;
-import net.minecraft.block.StairsBlock;
+import net.minecraft.block.*;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
@@ -37,6 +35,9 @@ public class ZogsTweaks implements ModInitializer {
     public static final StairsBlock CRACKED_STONE_BRICK_STAIRS = new ModStairsBlock(Blocks.CRACKED_STONE_BRICKS.getDefaultState(),
             FabricBlockSettings.copy(Blocks.CRACKED_STONE_BRICKS));
     public static final SlabBlock CRACKED_STONE_BRICK_SLAB = new SlabBlock(FabricBlockSettings.copy(Blocks.CRACKED_STONE_BRICKS));
+    public static final WallBlock POLISHED_GRANITE_WALL = new WallBlock(FabricBlockSettings.copy(Blocks.POLISHED_GRANITE));
+    public static final WallBlock POLISHED_ANDESITE_WALL = new WallBlock(FabricBlockSettings.copy(Blocks.POLISHED_ANDESITE));
+    public static final WallBlock POLISHED_DIORITE_WALL = new WallBlock(FabricBlockSettings.copy(Blocks.POLISHED_DIORITE));
 
     // Items
     public static final Item SNAIL_JAR = new Item(new FabricItemSettings().group(MAIN).maxCount(1));
@@ -54,11 +55,20 @@ public class ZogsTweaks implements ModInitializer {
         // Blocks
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "cracked_stone_brick_stairs"), CRACKED_STONE_BRICK_STAIRS);
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "cracked_stone_brick_slab"), CRACKED_STONE_BRICK_SLAB);
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "polished_granite_wall"), POLISHED_GRANITE_WALL);
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "polished_andesite_wall"), POLISHED_ANDESITE_WALL);
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "polished_diorite_wall"), POLISHED_DIORITE_WALL);
         // BlockItems
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "cracked_stone_brick_stairs"),
                 new BlockItem(CRACKED_STONE_BRICK_STAIRS, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)));
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "cracked_stone_brick_slab"),
                 new BlockItem(CRACKED_STONE_BRICK_SLAB, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)));
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "polished_granite_wall"),
+                new BlockItem(POLISHED_GRANITE_WALL, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "polished_andesite_wall"),
+                new BlockItem(POLISHED_ANDESITE_WALL, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "polished_diorite_wall"),
+                new BlockItem(POLISHED_DIORITE_WALL, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
 
         // Items
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "snail_jar"), SNAIL_JAR);
