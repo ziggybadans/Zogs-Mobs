@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "id": "zogsmobs",
-  "version": "${version}",
+  "id": "zogstweaks",
+  "version": "0.2-SNAPSHOT",
 
-  "name": "Zogs Mobs",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Zog's Tweaks",
+  "description": "A bunch of toggleable Vanilla+ tweaks made to enhance the game experience.",
   "authors": [
     "Ziggy Badans"
   ],
@@ -14,15 +14,15 @@
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/zogsmobs/icon.png",
+  "icon": "assets/zogstweaks/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.ziggybadans.zogsmobs.ZogsMobs"
+      "com.ziggybadans.zogstweaks.ZogsTweaks"
     ],
     "client": [
-      "com.ziggybadans.zogsmobs.ZogsMobsClient"
+      "com.ziggybadans.zogstweaks.ZogsTweaksClient"
     ]
   },
   "mixins": [

@@ -1,5 +1,6 @@
-package com.ziggybadans.zogsmobs.entity;
+package com.ziggybadans.zogstweaks.entity;
 
+import com.ziggybadans.zogstweaks.ZogsTweaks;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.WanderAroundGoal;
@@ -8,7 +9,12 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.PassiveEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
@@ -30,6 +36,18 @@ public class SnailEntity extends AnimalEntity {
     public static DefaultAttributeContainer.Builder createSnailAttributes() {
         return MobEntity.createMobAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 5.0D);
+    }
+
+    @Override
+    public ActionResult interactMob(PlayerEntity player, Hand hand) {
+        ItemStack itemStack = player.getStackInHand(hand);
+        if (itemStack.getItem() == ZogsTweaks.SNAIL_JAR && this.isAlive()) {
+            this.playSound(SoundEvents.BLOCK_ANVIL_DESTROY, 1.0F, 1.0F);
+            itemStack.decrement(1);
+            this.remove(RemovalReason.DISCARDED);
+            return ActionResult.success(this.world.isClient);
+        }
+        else { return super.interactMob(player, hand); }
     }
 
     @Override

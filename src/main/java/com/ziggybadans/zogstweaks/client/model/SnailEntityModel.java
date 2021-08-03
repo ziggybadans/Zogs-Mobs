@@ -1,7 +1,7 @@
-package com.ziggybadans.zogsmobs.client.model;
+package com.ziggybadans.zogstweaks.client.model;
 
 import com.google.common.collect.ImmutableList;
-import com.ziggybadans.zogsmobs.entity.SnailEntity;
+import com.ziggybadans.zogstweaks.entity.SnailEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;

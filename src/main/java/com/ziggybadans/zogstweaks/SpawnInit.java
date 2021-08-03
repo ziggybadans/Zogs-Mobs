@@ -1,4 +1,4 @@
-package com.ziggybadans.zogsmobs;
+package com.ziggybadans.zogstweaks;
 
 import com.google.common.base.Preconditions;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
@@ -31,8 +31,8 @@ public class SpawnInit {
             return category == Biome.Category.PLAINS;
         };
 
-        addSpawn(biomeSelector, ZogsMobs.SNAIL.getSpawnGroup(),
-                new SpawnSettings.SpawnEntry(ZogsMobs.SNAIL, 100, 1, 5));
+        addSpawn(biomeSelector, ZogsTweaks.SNAIL.getSpawnGroup(),
+                new SpawnSettings.SpawnEntry(ZogsTweaks.SNAIL, 100, 1, 5));
     }
 
     public static void init() {
