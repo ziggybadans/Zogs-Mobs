@@ -1,5 +1,6 @@
 package com.ziggybadans.zogstweaks;
 
+import com.ziggybadans.zogstweaks.blocks.RockPileBlock;
 import com.ziggybadans.zogstweaks.entity.SnailEntity;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -32,12 +33,13 @@ public class ZogsTweaks implements ModInitializer {
     );
 
     // Blocks
-    public static final StairsBlock CRACKED_STONE_BRICK_STAIRS = new ModStairsBlock(Blocks.CRACKED_STONE_BRICKS.getDefaultState(),
-            FabricBlockSettings.copy(Blocks.CRACKED_STONE_BRICKS));
-    public static final SlabBlock CRACKED_STONE_BRICK_SLAB = new SlabBlock(FabricBlockSettings.copy(Blocks.CRACKED_STONE_BRICKS));
+    public static final StairsBlock CRACKED_STONE_BRICK_STAIRS = new ModStairsBlock(Blocks.STONE_BRICKS.getDefaultState(),
+            FabricBlockSettings.of(Material.STONE).strength(0.25F, 6F));
+    public static final SlabBlock CRACKED_STONE_BRICK_SLAB = new SlabBlock(FabricBlockSettings.of(Material.STONE).strength(0.25F, 6F));
     public static final WallBlock POLISHED_GRANITE_WALL = new WallBlock(FabricBlockSettings.copy(Blocks.POLISHED_GRANITE));
     public static final WallBlock POLISHED_ANDESITE_WALL = new WallBlock(FabricBlockSettings.copy(Blocks.POLISHED_ANDESITE));
     public static final WallBlock POLISHED_DIORITE_WALL = new WallBlock(FabricBlockSettings.copy(Blocks.POLISHED_DIORITE));
+    public static final RockPileBlock ROCK_PILE = new RockPileBlock(FabricBlockSettings.copy(Blocks.STONE_BUTTON));
 
     // Items
     public static final Item SNAIL_JAR = new Item(new FabricItemSettings().group(MAIN).maxCount(1));
@@ -58,6 +60,7 @@ public class ZogsTweaks implements ModInitializer {
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "polished_granite_wall"), POLISHED_GRANITE_WALL);
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "polished_andesite_wall"), POLISHED_ANDESITE_WALL);
         Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "polished_diorite_wall"), POLISHED_DIORITE_WALL);
+        Registry.register(Registry.BLOCK, new Identifier(MOD_ID, "rock_pile"), ROCK_PILE);
         // BlockItems
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "cracked_stone_brick_stairs"),
                 new BlockItem(CRACKED_STONE_BRICK_STAIRS, new FabricItemSettings().group(ItemGroup.BUILDING_BLOCKS)));
@@ -69,6 +72,8 @@ public class ZogsTweaks implements ModInitializer {
                 new BlockItem(POLISHED_ANDESITE_WALL, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "polished_diorite_wall"),
                 new BlockItem(POLISHED_DIORITE_WALL, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+        Registry.register(Registry.ITEM, new Identifier(MOD_ID, "rock_pile"),
+                new BlockItem(ROCK_PILE, new FabricItemSettings().group(ZogsTweaks.MAIN)));
 
         // Items
         Registry.register(Registry.ITEM, new Identifier(MOD_ID, "snail_jar"), SNAIL_JAR);
